@@ -11,6 +11,7 @@ export class EditWidgetComponent implements OnInit {
   widgetIndex:number;
 
   @Output() deleteWidget = new EventEmitter();
+  @Output() closeDialog = new EventEmitter();
 
   constructor() { }
 
@@ -20,6 +21,10 @@ export class EditWidgetComponent implements OnInit {
   delete(){
     // delete this.widget;
     this.deleteWidget.emit(this.widgetIndex);
+  }
+
+  close(){
+    this.closeDialog.emit();
   }
 
 }
