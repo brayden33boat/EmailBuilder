@@ -72,7 +72,7 @@ export class ViewEmailBuilderComponent implements OnInit {
 
     //Don't want by reference
     //this was a HUGE pain in my arse. Some reason when getting insertables it'd copy object by reference, not making a new obj
-    $event.dragData = new Widget(widget.getID(), widget.getFavicon(), widget.getHtmlTemplate(), JSON.parse(JSON.stringify(widget.getInsertables())));
+    $event.dragData = new Widget(widget.getID(), widget.getType(), widget.getFavicon(), widget.getHtmlTemplate(), JSON.parse(JSON.stringify(widget.getInsertables())));
 
     this.receivedData.push($event);
     this.toHtml();

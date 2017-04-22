@@ -5,7 +5,7 @@
       <div class="panel-body">
         <div class="row">
 
-          <div *ngFor="let widget of widgets;" class="col-md-4 widget">
+          <div *ngFor="let widget of widgets;" class="col-md-4 widget widget_{{widget.type}}">
             <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="widget">
               <i class="{{widget.favicon}}" aria-hidden="true"></i>
             </div>

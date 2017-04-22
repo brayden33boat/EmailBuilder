@@ -12,6 +12,13 @@
   padding:2px;
 }
 
+:host /deep/ .widget_1{
+  background-color: black;
+}
+
+:host /deep/ .widget_2{
+  background-color: yellow;
+}
 
 .tableMarkup tr {
   margin-bottom:20px;

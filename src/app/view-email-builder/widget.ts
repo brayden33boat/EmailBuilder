@@ -1,5 +1,5 @@
 export class Widget {
-  constructor(private id: number, private favicon:String, private htmlTemplate: String, private insertables: [{selector:string,value:string}]) { }
+  constructor(private id: number, private type:number, private favicon:String, private htmlTemplate: String, private insertables: [{selector:string,value:string}]) { }
 
   getHtml() {
     var html = this.htmlTemplate;
@@ -12,6 +12,10 @@ export class Widget {
     }
 
     return html;
+  }
+
+  getType(){
+    return this.type;
   }
 
   getFavicon(){
