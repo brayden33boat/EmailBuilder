@@ -4,15 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ViewEmailBuilderComponent } from './view-email-builder/view-email-builder.component';
+
+import {DndModule} from 'ng2-dnd';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ViewEmailBuilderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    DndModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
