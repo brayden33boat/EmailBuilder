@@ -70,6 +70,7 @@ export class ViewEmailBuilderComponent implements OnInit {
     dialogRef.componentInstance.deleteWidget.subscribe((i) => {
       // do something
       this.receivedData.splice(i, 1);
+      dialogRef.close();
     });
   }
 
