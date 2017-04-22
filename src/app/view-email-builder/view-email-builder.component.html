@@ -6,58 +6,10 @@
         <div class="row">
 
           <div *ngFor="let widget of widgets;" class="col-md-4 widget widget_{{widget.type}}">
-            <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="widget">
+            <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="widget" [dropZones]="['widget-dropZone']">
               <i class="{{widget.favicon}}" aria-hidden="true"></i>
             </div>
           </div>
-
-
-          <!--<div class="col-md-4 widget">
-            <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="singleColumnText">
-              <i class="fa fa-align-center" style="font-size:4em" aria-hidden="true"></i>
-            </div>
-          </div>
-
-          <div class="col-md-4 widget">
-            <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="doubleColumnText">
-              <div class="row">
-                <div class="col-md-3 col-md-offset-1">
-                  <i class="fa fa-align-justify" style="font-size:2em" aria-hidden="true"></i>
-                </div>
-                <div class="col-md-3 col-md-offset-1">
-                  <i class="fa fa-align-justify" style="font-size:2em" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 widget">
-            <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="tripleColumnText">
-              <div class="row">
-                <div class="col-md-2">
-                  <i class="fa fa-align-justify" style="font-size:2em" aria-hidden="true"></i>
-                </div>
-                <div class="col-md-2">
-                  <i class="fa fa-align-justify" style="font-size:2em" aria-hidden="true"></i>
-                </div>
-                <div class="col-md-2">
-                  <i class="fa fa-align-justify" style="font-size:2em" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 widget">
-            <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="headerOne">
-              <i class="fa fa-header" style="font-size:4em" aria-hidden="true"></i>
-            </div>
-          </div>
-
-          <div class="col-md-4 widget">
-            <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="headerThree">
-              <i class="fa fa-header" style="font-size:2.3em" aria-hidden="true"></i>
-            </div>
-          </div>-->
 
         </div>
       </div>
@@ -73,7 +25,7 @@
   </div>
 
 
-  <div class="col-md-8" dnd-droppable (onDropSuccess)="transferDataSuccess($event)">
+  <div class="col-md-8" dnd-droppable (onDropSuccess)="transferDataSuccess($event)" [dropZones]="['widget-dropZone']">
     <div class="panel panel-info">
       <div class="panel-heading">Email Preview</div>
       <div class="panel-body">

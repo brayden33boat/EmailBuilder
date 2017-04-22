@@ -66,6 +66,9 @@ export class ViewEmailBuilderComponent implements OnInit {
     dialogRef.componentInstance.widget = this.receivedData[index].dragData;
   }
 
+  myEventHandler($event){
+    console.log($event);
+  }
 
   transferDataSuccess($event: any) {
     var widget: Widget = $event.dragData;

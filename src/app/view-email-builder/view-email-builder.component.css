@@ -1,4 +1,7 @@
-
+.dnd-drag-over .panel-body{
+  /*background-color:black;*/
+  border: 2px black dashed;
+}
 
 :host /deep/ table {
   width:100%;
@@ -18,6 +21,10 @@
 
 :host /deep/ .widget_2{
   background-color: yellow;
+}
+
+:host /deep/ .highlightMe{
+  color:black;
 }
 
 .tableMarkup tr {
