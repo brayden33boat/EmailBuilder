@@ -1,3 +1,18 @@
-<p>
-  edit-widget works!
-</p>
+<h2>Edit</h2>
+
+<div class="col-md-12">
+  <md-input-container>
+    <input mdInput type="text" placeholder="Favorite food" value="Sushi">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput type="text" placeholder="Favorite food" value="Sushi">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput type="text" placeholder="Favorite food" value="Sushi">
+  </md-input-container>
+
+  <br />
+  <button class="btn btn-primary pull-right" (click)="dialogRef.close('yes')">Save</button>
+</div>
+
+{{widget | json}}

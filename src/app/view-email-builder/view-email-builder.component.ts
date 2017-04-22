@@ -61,9 +61,11 @@ export class ViewEmailBuilderComponent implements OnInit {
   }
 
   editItem(index){
-    console.log(this.receivedData[index].dragData);
+    var thisWidget:Widget=this.receivedData[index].dragData;
+    console.log(thisWidget);
 
-    this.dialog.open(EditWidgetComponent);
+    let dialogRef:MdDialogRef<EditWidgetComponent> = this.dialog.open(EditWidgetComponent);
+    dialogRef.componentInstance.widget = thisWidget;
   }
 
 

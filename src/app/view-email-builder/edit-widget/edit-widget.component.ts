@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-widget.component.css']
 })
 export class EditWidgetComponent implements OnInit {
+  widget:any;
 
   constructor() { }
 
