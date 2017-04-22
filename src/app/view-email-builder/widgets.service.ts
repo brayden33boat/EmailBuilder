@@ -24,6 +24,7 @@ export class WidgetsService {
     widgets.push(new Widget(9,4,"fa fa-window-minimize fa-6", "<table style='width:100%'><tr><td><div style='border-bottom:{{color}} 1px dashed'></div></td></tr></table>", [{ 'selector': 'title', 'value': 'Title 1' },{ 'selector': 'color', 'value': 'black' }]));
 
     widgets.push(new Widget(10,5,"fa fa-link fa-6", "<table style='width:100%'><tr align='{{align}}'><td><a href='{{href}}'>{{linkText}}</a></td></tr></table>", [{ 'selector': 'align', 'value': 'center' },{ 'selector': 'href', 'value': '#' },{ 'selector': 'linkText', 'value': 'link' }]));
+    widgets.push(new Widget(11,5,"fa fa-link fa-6", "<table style='width:100%'><tr align='{{align}}'><td><a href='{{href1}}'>{{linkText1}}</a></td><td><a href='{{href2}}'>{{linkText2}}</a></td></tr></table>", [{ 'selector': 'align', 'value': 'center' },{ 'selector': 'href1', 'value': '#' },{ 'selector': 'linkText1', 'value': 'link' },{ 'selector': 'href2', 'value': '#' },{ 'selector': 'linkText2', 'value': 'link' }]));
 
     return widgets;
   }
