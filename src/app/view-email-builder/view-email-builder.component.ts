@@ -7,6 +7,8 @@ import {Widget} from './widget'
 
 import {WidgetsService} from './widgets.service';
 
+
+
 @Component({
   selector: 'app-view-email-builder',
   templateUrl: './view-email-builder.component.html',

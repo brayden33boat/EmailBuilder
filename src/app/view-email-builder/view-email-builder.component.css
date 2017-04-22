@@ -3,10 +3,6 @@
   border: 2px black dashed;
 }
 
-:host /deep/ table {
-  width:100%;
-}
-
 .center{
   text-align:center;
 }
@@ -21,6 +17,14 @@
 
 :host /deep/ .widget_2{
   background-color: yellow;
+}
+
+:host /deep/ .widget_3{
+  background-color: grey;
+}
+
+:host /deep/ .widget_4{
+  background-color: blue;
 }
 
 :host /deep/ .highlightMe{

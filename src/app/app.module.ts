@@ -13,12 +13,14 @@ import {MaterialModule} from '@angular/material';
 import 'hammerjs';
 import { EditWidgetComponent } from './view-email-builder/edit-widget/edit-widget.component';
 import {WidgetsService} from './view-email-builder/widgets.service';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewEmailBuilderComponent,
-    EditWidgetComponent
+    EditWidgetComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
