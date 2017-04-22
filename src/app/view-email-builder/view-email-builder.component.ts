@@ -13,11 +13,16 @@ export class ViewEmailBuilderComponent implements OnInit {
   
   singleColumnText: Widget = new Widget(1,"<table style='width:100%'><tr align='center'><td>{{text1}}</td></tr></table>",[{'selector':'text1', 'value':'hi'}]);
   doubleColumnText: Widget = new Widget(2,"<table style='width:100%'><tr align='center'><td>{{text1}}</td><td>{{text2}}</td></tr></table>",[{'selector':'text1', 'value':'hello1'},{'selector':'text2', 'value':'hello2'}]);
+  tripleColumnText: Widget = new Widget(3,"<table style='width:100%'><tr align='center'><td>{{text1}}</td><td>{{text2}}</td><td>{{text3}}</td></tr></table>",[{'selector':'text1', 'value':'hello1'},{'selector':'text2', 'value':'hello2'},{'selector':'text3','value':'hello3'}]);
+  headerOne: Widget = new Widget(4,"<table style='width:100%'><tr align='center'><td><h1>{{title}}</h1></td></tr></table>",[{'selector':'title', 'value':'Title 1'}]);
+  headerThree: Widget = new Widget(4,"<table style='width:100%'><tr align='center'><td><h3>{{title}}</h3></td></tr></table>",[{'selector':'title', 'value':'Title 1'}]);
 
   receivedData: Array<any> = [];
 
   html:String;
   showHtml:Boolean = false;
+
+  showTableMarkup:Boolean = true;
   
 
   constructor() { }
@@ -28,6 +33,10 @@ export class ViewEmailBuilderComponent implements OnInit {
   reset(){
     this.receivedData=[];
     this.html='';
+  }
+
+  toggleShowTableMarkup(){
+    this.showTableMarkup=!this.showTableMarkup;
   }
 
   toggleHtml(){

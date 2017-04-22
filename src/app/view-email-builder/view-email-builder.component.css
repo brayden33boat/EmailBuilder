@@ -7,3 +7,14 @@
 .center{
   text-align:center;
 }
+
+.widget{
+  padding:2px;
+}
+
+
+.tableMarkup tr {
+  margin-bottom:20px;
+  border-bottom: 1px darkblue dashed;
+  border-top: 1px darkblue dashed;
+}
