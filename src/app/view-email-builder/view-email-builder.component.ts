@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import {MdDialog, MdDialogRef} from '@angular/material';
+import {EditWidgetComponent} from './edit-widget/edit-widget.component';
+
 @Component({
   selector: 'app-view-email-builder',
   templateUrl: './view-email-builder.component.html',
@@ -25,7 +28,7 @@ export class ViewEmailBuilderComponent implements OnInit {
   showTableMarkup:Boolean = true;
   
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
   }
@@ -59,8 +62,9 @@ export class ViewEmailBuilderComponent implements OnInit {
 
   editItem(index){
     console.log(this.receivedData[index].dragData);
-  }
 
+    this.dialog.open(EditWidgetComponent);
+  }
 
 
   transferDataSuccess($event: any) {
@@ -69,6 +73,8 @@ export class ViewEmailBuilderComponent implements OnInit {
   }
 
 }
+
+
 
 
 class Widget {

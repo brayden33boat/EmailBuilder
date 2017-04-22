@@ -70,9 +70,9 @@
     <div class="panel panel-info">
       <div class="panel-heading">Email Preview</div>
       <div class="panel-body">
-        <table  [ngClass]="{'tableMarkup': showTableMarkup}" style='width:100%'>
-          <tbody >
-            <tr dnd-sortable-container [sortableData]="receivedData" *ngFor="let data of receivedData; let i = index" dnd-sortable [sortableIndex]="i" [dragEnabled]="true" (dblclick)="editItem(i)">
+        <table [ngClass]="{'tableMarkup': showTableMarkup}" style='width:100%'>
+          <tbody dnd-sortable-container [sortableData]="receivedData" >
+            <tr *ngFor="let data of receivedData; let i = index" dnd-sortable [sortableIndex]="i" [dragEnabled]="true" (dblclick)="editItem(i)">
               <td [innerHTML]="data.dragData.getHtml()"></td>
             </tr>
           </tbody>
