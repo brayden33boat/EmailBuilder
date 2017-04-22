@@ -2,17 +2,35 @@
   <div class="col-md-4">
     <div class="row">
       <div class="col-md-4">
-        <div dnd-draggable [dragEnabled]="true">
-            <i class="fa fa-align-justify" style="font-size:8em" aria-hidden="true"></i>
+        <div dnd-draggable [dragEnabled]="true" [dragData]="singleColumnText">
+          <i class="fa fa-align-center" style="font-size:8em" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div dnd-draggable [dragEnabled]="true" [dragData]="doubleColumnText">
+          <div class="row">
+            <div class="col-md-6">
+              <i class="fa fa-align-justify" style="font-size:4em" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-6">
+              <i class="fa fa-align-justify" style="font-size:4em" aria-hidden="true"></i>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col-md-8">
-    <div dnd-droppable class="panel panel-info" (onDropSuccess)="simpleDrop=$event">
-      <div class="panel-heading">Place to drop</div>
+    <div dnd-droppable class="panel panel-info" (onDropSuccess)="transferDataSuccess($event)">
+      <div class="panel-heading">Email Preview</div>
       <div class="panel-body">
-        <div *ngIf="simpleDrop">Item was dropped here</div>
+        <table>
+          <tbody dnd-sortable-container [sortableData]="receivedData">
+            <tr *ngFor="let data of receivedData; let i = index" dnd-sortable [sortableIndex]="i" [dragEnabled]="true">
+              <td [innerHTML]="data.dragData.html"></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
