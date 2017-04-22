@@ -50,6 +50,8 @@ export class WidgetsService {
     widgets.push(new Widget(12,6,"fa fa-share-square fa-6", "<table style='width:100%'><tr align='{{align}}'><td><a style='"+buttonStyle1+"' href='{{href}}'>{{linkText}}</a></td></tr></table>", [{ 'label':'Alignment', 'selector': 'align', 'value': 'center' },{ 'label':'Link', 'selector': 'href', 'value': '#' },{ 'label':'Link Text', 'selector': 'linkText', 'value': 'link' },{'label':'Background Color', 'selector':'bgColor1', 'value':'orange'}]));
     widgets.push(new Widget(13,6,"fa fa-share-square fa-6", "<table style='width:100%'><tr align='{{align}}'><td style='width:50%'><a style='"+buttonStyle1+"' href='{{href1}}'>{{linkText1}}</a></td><td style='width:50%'><a style='"+buttonStyle2+"' href='{{href2}}'>{{linkText2}}</a></td></tr></table>", [{ 'label':'Alignment','selector': 'align', 'value': 'center' },{ 'label':'1st link','selector': 'href1', 'value': '#' },{'label':'1st Link Text', 'selector': 'linkText1', 'value': 'link' },{ 'label':'Second Link', 'selector': 'href2', 'value': '#' },{ 'label':'2nd Link Text', 'selector': 'linkText2', 'value': 'link' },{'label':'1st Background Color','selector':'bgColor1', 'value':'orange'}, {'label':'2nd Background Color','selector':'bgColor2', 'value':'orange'}]));
 
+    widgets.push(new Widget(14,7,"fa fa-arrows-v fa-6", "<table style='width:100%'><tr><td><div style='height:{{height}}'></div></td></tr></table>", [{  'label':'Height', 'selector': 'height', 'value': '30px' }]));
+
     return widgets;
   }
 
