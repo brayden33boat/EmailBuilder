@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Widget} from '../widget'
 
 @Component({
   selector: 'app-edit-widget',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-widget.component.css']
 })
 export class EditWidgetComponent implements OnInit {
-  widget:any;
+  widget:Widget;
 
   constructor() { }
 

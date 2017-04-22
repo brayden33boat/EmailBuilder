@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { EditWidgetComponent } from './edit-widget/edit-widget.component';
 
+import {Widget} from './widget'
+
+import {WidgetsService} from './widgets.service';
+
 @Component({
   selector: 'app-view-email-builder',
   templateUrl: './view-email-builder.component.html',
@@ -11,15 +15,7 @@ import { EditWidgetComponent } from './edit-widget/edit-widget.component';
 export class ViewEmailBuilderComponent implements OnInit {
   simpleDrop: any = null;
 
-  // singleColumnText: Object = { id: 1, data: [{'text1':'hello'}], html: "<table style='width:100%'><tr align='center'><td>Text</td></tr></table>" };
-  // doubleColumnText: Object = { id: 2, data: [{'text1':'hello', 'text2':'hi'}], html: "<table style='width:100%'><tr align='center'><td>Text 1</td><td>Text 2</td></tr></table>" };
-
-  singleColumnText: Widget = new Widget(1, "<table style='width:100%'><tr align='center'><td>{{text1}}</td></tr></table>", [{ 'selector': 'text1', 'value': 'hi' }]);
-  doubleColumnText: Widget = new Widget(2, "<table style='width:100%'><tr align='center'><td>{{text1}}</td><td>{{text2}}</td></tr></table>", [{ 'selector': 'text1', 'value': 'hello1' }, { 'selector': 'text2', 'value': 'hello2' }]);
-  tripleColumnText: Widget = new Widget(3, "<table style='width:100%'><tr align='center'><td>{{text1}}</td><td>{{text2}}</td><td>{{text3}}</td></tr></table>", [{ 'selector': 'text1', 'value': 'hello1' }, { 'selector': 'text2', 'value': 'hello2' }, { 'selector': 'text3', 'value': 'hello3' }]);
-
-  headerOne: Widget = new Widget(4, "<table style='width:100%'><tr align='center'><td><h1>{{title}}</h1></td></tr></table>", [{ 'selector': 'title', 'value': 'Title 1' }]);
-  headerThree: Widget = new Widget(4, "<table style='width:100%'><tr align='center'><td><h3>{{title}}</h3></td></tr></table>", [{ 'selector': 'title', 'value': 'Title 1' }]);
+  widgets: any;
 
   receivedData: Array<any> = [];
 
@@ -29,9 +25,10 @@ export class ViewEmailBuilderComponent implements OnInit {
   showTableMarkup: Boolean = true;
 
 
-  constructor(public dialog: MdDialog) { }
+  constructor(public dialog: MdDialog, private widgetsService:WidgetsService) { }
 
   ngOnInit() {
+    this.widgets = this.widgetsService.getWidgets();
   }
 
   reset() {
@@ -75,7 +72,7 @@ export class ViewEmailBuilderComponent implements OnInit {
 
     //Don't want by reference
     //this was a HUGE pain in my arse. Some reason when getting insertables it'd copy object by reference, not making a new obj
-    $event.dragData = new Widget(widget.getID(), widget.getHtmlTemplate(), JSON.parse(JSON.stringify(widget.getInsertables())));
+    $event.dragData = new Widget(widget.getID(), widget.getFavicon(), widget.getHtmlTemplate(), JSON.parse(JSON.stringify(widget.getInsertables())));
 
     this.receivedData.push($event);
     this.toHtml();
@@ -86,38 +83,3 @@ export class ViewEmailBuilderComponent implements OnInit {
 
 
 
-class Widget {
-  constructor(private id: number, private htmlTemplate: String, private insertables: [{selector:string,value:string}]) { }
-
-  importVars(id: number, htmlTemplate: String, insertables: [any]) {
-    this.id = id;
-    this.htmlTemplate = htmlTemplate;
-    this.insertables = insertables;
-  }
-
-  getID() {
-    return this.id;
-  }
-
-  getHtmlTemplate() {
-    return this.htmlTemplate;
-  }
-
-  getInsertables() {
-    return this.insertables;
-  }
-
-
-  getHtml() {
-    var html = this.htmlTemplate;
-
-    for (var i = 0; i < this.insertables.length; i++) {
-      var selector = '{{' + this.insertables[i].selector + '}}';
-      var val = this.insertables[i].value;
-
-      html = html.replace(selector, val);
-    }
-
-    return html;
-  }
-}

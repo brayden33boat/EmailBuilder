@@ -18,3 +18,27 @@
   border-bottom: 1px darkblue dashed;
   border-top: 1px darkblue dashed;
 }
+
+.fa-6{
+  font-size:7em;
+}
+
+.fa-5{
+  font-size:6em;
+}
+
+.fa-4{
+  font-size:5em;
+}
+
+.fa-3{
+  font-size:4em;
+}
+
+.fa-2{
+  font-size:3em;
+}
+
+.fa-1{
+  font-size:2em;
+}

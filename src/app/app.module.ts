@@ -12,6 +12,7 @@ import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 import {MaterialModule} from '@angular/material';
 import 'hammerjs';
 import { EditWidgetComponent } from './view-email-builder/edit-widget/edit-widget.component';
+import {WidgetsService} from './view-email-builder/widgets.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { EditWidgetComponent } from './view-email-builder/edit-widget/edit-widge
     MdCheckboxModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [WidgetsService],
   bootstrap: [AppComponent],
   entryComponents: [EditWidgetComponent]
 })
