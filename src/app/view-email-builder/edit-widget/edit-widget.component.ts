@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Widget} from '../widget'
 
 @Component({
@@ -8,10 +8,18 @@ import {Widget} from '../widget'
 })
 export class EditWidgetComponent implements OnInit {
   widget:Widget;
+  widgetIndex:number;
+
+  @Output() deleteWidget = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  delete(){
+    // delete this.widget;
+    this.deleteWidget.emit(this.widgetIndex);
   }
 
 }

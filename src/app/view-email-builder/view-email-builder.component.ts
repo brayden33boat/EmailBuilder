@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { EditWidgetComponent } from './edit-widget/edit-widget.component';
 
-import {Widget} from './widget'
+import { Widget } from './widget'
 
-import {WidgetsService} from './widgets.service';
+import { WidgetsService } from './widgets.service';
 
 
 
@@ -27,7 +27,7 @@ export class ViewEmailBuilderComponent implements OnInit {
   showTableMarkup: Boolean = true;
 
 
-  constructor(public dialog: MdDialog, private widgetsService:WidgetsService) { }
+  constructor(public dialog: MdDialog, private widgetsService: WidgetsService) { }
 
   ngOnInit() {
     this.widgets = this.widgetsService.getWidgets();
@@ -62,13 +62,18 @@ export class ViewEmailBuilderComponent implements OnInit {
 
   editItem(index) {
     var thisWidget: Widget = this.receivedData[index].dragData;
-    console.log(index, thisWidget);
 
     let dialogRef: MdDialogRef<EditWidgetComponent> = this.dialog.open(EditWidgetComponent);
     dialogRef.componentInstance.widget = this.receivedData[index].dragData;
+    dialogRef.componentInstance.widgetIndex = index;
+
+    dialogRef.componentInstance.deleteWidget.subscribe((i) => {
+      // do something
+      this.receivedData.splice(i, 1);
+    });
   }
 
-  myEventHandler($event){
+  myEventHandler($event) {
     console.log($event);
   }
 

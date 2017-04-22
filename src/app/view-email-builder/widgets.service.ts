@@ -26,6 +26,19 @@ export class WidgetsService {
     widgets.push(new Widget(10,5,"fa fa-link fa-6", "<table style='width:100%'><tr align='{{align}}'><td><a href='{{href}}'>{{linkText}}</a></td></tr></table>", [{ 'selector': 'align', 'value': 'center' },{ 'selector': 'href', 'value': '#' },{ 'selector': 'linkText', 'value': 'link' }]));
     widgets.push(new Widget(11,5,"fa fa-link fa-6", "<table style='width:100%'><tr align='{{align}}'><td style='width:50%'><a href='{{href1}}'>{{linkText1}}</a></td><td style='width:50%'><a href='{{href2}}'>{{linkText2}}</a></td></tr></table>", [{ 'selector': 'align', 'value': 'center' },{ 'selector': 'href1', 'value': '#' },{ 'selector': 'linkText1', 'value': 'link' },{ 'selector': 'href2', 'value': '#' },{ 'selector': 'linkText2', 'value': 'link' }]));
 
+    var buttonStyle = `color: white;
+                        background-color: orange;
+                        padding: 10px;
+                        border-radius: 3px;
+                        font-family: Helvetica;
+                        font-size: 15px;
+                        line-height: 20.8px;
+                        word-wrap: break-word;
+                        font-weight: normal;
+                        text-decoration: none;`;
+    widgets.push(new Widget(12,6,"fa fa-share-square fa-6", "<table style='width:100%'><tr align='{{align}}'><td><a style='"+buttonStyle+"' href='{{href}}'>{{linkText}}</a></td></tr></table>", [{ 'selector': 'align', 'value': 'center' },{ 'selector': 'href', 'value': '#' },{ 'selector': 'linkText', 'value': 'link' }]));
+    widgets.push(new Widget(13,6,"fa fa-share-square fa-6", "<table style='width:100%'><tr align='{{align}}'><td style='width:50%'><a style='"+buttonStyle+"' href='{{href1}}'>{{linkText1}}</a></td><td style='width:50%'><a style='"+buttonStyle+"' href='{{href2}}'>{{linkText2}}</a></td></tr></table>", [{ 'selector': 'align', 'value': 'center' },{ 'selector': 'href1', 'value': '#' },{ 'selector': 'linkText1', 'value': 'link' },{ 'selector': 'href2', 'value': '#' },{ 'selector': 'linkText2', 'value': 'link' }]));
+
     return widgets;
   }
 

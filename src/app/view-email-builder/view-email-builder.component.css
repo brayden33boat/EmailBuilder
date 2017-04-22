@@ -27,6 +27,18 @@
   background-color: blue;
 }
 
+:host /deep/ .widget_5{
+  background-color: red;
+}
+
+:host /deep/ .widget_6{
+  background-color: green;
+}
+
+:host /deep/ .widget_7{
+  background-color: orange;
+}
+
 :host /deep/ .highlightMe{
   color:black;
 }

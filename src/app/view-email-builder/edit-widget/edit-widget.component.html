@@ -1,10 +1,18 @@
 <h2>Edit</h2>
 
-<div class="col-md-12">
-  <md-input-container *ngFor="let insertable of widget.insertables">
-    <!--<input mdInput type="text" placeholder="Data Input" [(ngModel)]="insertable.value">-->
-    <textarea mdInput [(ngModel)]="insertable.value"></textarea>
-  </md-input-container>
+<div class="row">
+  <div class="col-md-12">
+    <md-input-container *ngFor="let insertable of widget.insertables">
+      <!--<input mdInput type="text" placeholder="Data Input" [(ngModel)]="insertable.value">-->
+      <textarea mdInput [(ngModel)]="insertable.value"></textarea>
+    </md-input-container>
 
-  <br />
+    <br />
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-danger pull-right" (click)="delete()">Delete</button>
+  </div>
 </div>
