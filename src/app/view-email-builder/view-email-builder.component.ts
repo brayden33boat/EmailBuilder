@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewEmailBuilderComponent implements OnInit {
   simpleDrop: any = null;
-  singleColumnText: Object = { id: 1, msg: 'Hello', html: "<table style='width:100%'><tr align='center'><td>Text</td></tr></table>" };
-  doubleColumnText: Object = { id: 2, msg: 'Hello', html: "<table style='width:100%'><tr align='center'><td>Text 1</td><td>Text 2</td></tr></table>" };
+
+  // singleColumnText: Object = { id: 1, data: [{'text1':'hello'}], html: "<table style='width:100%'><tr align='center'><td>Text</td></tr></table>" };
+  // doubleColumnText: Object = { id: 2, data: [{'text1':'hello', 'text2':'hi'}], html: "<table style='width:100%'><tr align='center'><td>Text 1</td><td>Text 2</td></tr></table>" };
   
+  singleColumnText: Widget = new Widget(1,"<table style='width:100%'><tr align='center'><td>{{text1}}</td></tr></table>",[{'selector':'text1', 'value':'hi'}]);
+  doubleColumnText: Widget = new Widget(2,"<table style='width:100%'><tr align='center'><td>{{text1}}</td><td>{{text2}}</td></tr></table>",[{'selector':'text1', 'value':'hello1'},{'selector':'text2', 'value':'hello2'}]);
+
   receivedData: Array<any> = [];
 
   html:String;
@@ -23,6 +27,7 @@ export class ViewEmailBuilderComponent implements OnInit {
 
   reset(){
     this.receivedData=[];
+    this.html='';
   }
 
   toggleHtml(){
@@ -34,7 +39,7 @@ export class ViewEmailBuilderComponent implements OnInit {
 
     for (var i = 0; i < this.receivedData.length; i++) {
       html += "<tr><td>";
-      html += this.receivedData[i].dragData.html;
+      html += this.receivedData[i].dragData.getHtml();
       html += "</td></tr>";
     }
 
@@ -43,8 +48,8 @@ export class ViewEmailBuilderComponent implements OnInit {
     this.html = html;
   }
 
-  editItem(){
-    console.log('Edit Item');
+  editItem(index){
+    console.log(this.receivedData[index].dragData);
   }
 
 
@@ -54,4 +59,22 @@ export class ViewEmailBuilderComponent implements OnInit {
     this.toHtml();
   }
 
+}
+
+
+class Widget {
+  constructor(public id: number, public htmlTemplate: String, public insertables:[any]) {}
+
+  getHtml(){
+    var html = this.htmlTemplate;
+
+    for(var i = 0; i < this.insertables.length; i++){
+      var selector = '{{' + this.insertables[i].selector + '}}';
+      var val = this.insertables[i].value;
+
+      html = html.replace(selector, val);
+    }
+
+    return html;
+  }
 }

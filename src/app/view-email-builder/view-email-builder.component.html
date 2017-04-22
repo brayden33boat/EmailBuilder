@@ -40,8 +40,8 @@
       <div class="panel-body">
         <table style='width:100%'>
           <tbody dnd-sortable-container [sortableData]="receivedData">
-            <tr *ngFor="let data of receivedData; let i = index" dnd-sortable [sortableIndex]="i" [dragEnabled]="true" (dblclick)="editItem()">
-              <td [innerHTML]="data.dragData.html"></td>
+            <tr *ngFor="let data of receivedData; let i = index" dnd-sortable [sortableIndex]="i" [dragEnabled]="true" (dblclick)="editItem(i)">
+              <td [innerHTML]="data.dragData.getHtml()"></td>
             </tr>
           </tbody>
         </table>
