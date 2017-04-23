@@ -1,5 +1,9 @@
-<p>Purpose of this is to build email templates.</p>
-<p>Drag elements from left to right. Double click element in Email Preview to edit.</p>
+<p>Purpose of this is to build emails.</p>
+<ul>
+  <li>Drag elements from left to right</li>
+  <li>Double click element in Email Preview to edit</li>
+  <li>Drag elements in email preview to re order</li>
+</ul>
 
 <div class="row">
   <div class="col-md-4">
@@ -8,7 +12,7 @@
       <div class="panel-body">
         <div class="row">
 
-          <div *ngFor="let widget of widgets;" class="col-md-3 widget widget_{{widget.type}}">
+          <div *ngFor="let widget of widgets;" class="col-md-4 widget widget_{{widget.type}}">
             <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="widget" [dropZones]="['widget-dropZone']">
               <i class="{{widget.favicon}}" aria-hidden="true"></i>
             </div>
@@ -33,7 +37,7 @@
   <div class="col-md-8" dnd-droppable (onDropSuccess)="transferDataSuccess($event)" [dropZones]="['widget-dropZone']">
     <div class="panel panel-info">
       <div class="panel-heading">Email Preview</div>
-      <div class="panel-body" style="min-height:650px;">
+      <div class="panel-body" style="min-height:600px;">
         <table [ngClass]="{'tableMarkup': showTableMarkup}" style='width:100%'>
           <tbody dnd-sortable-container [sortableData]="receivedData" >
             <tr *ngFor="let data of receivedData; let i = index" dnd-sortable [sortableIndex]="i" [dragEnabled]="true" (dblclick)="editItem(i)">
