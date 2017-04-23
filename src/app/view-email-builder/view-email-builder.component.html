@@ -15,6 +15,7 @@
           <div *ngFor="let widget of widgets;" class="col-md-4 widget widget_{{widget.type}}">
             <div class="bg-primary center" dnd-draggable [dragEnabled]="true" [dragData]="widget" [dropZones]="['widget-dropZone']">
               <i class="{{widget.favicon}}" aria-hidden="true"></i>
+              <div>{{widget.label}}</div>
             </div>
           </div>
 
