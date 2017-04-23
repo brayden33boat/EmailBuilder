@@ -1,7 +1,6 @@
-.dnd-drag-over .panel-body{
-  /*background-color:black;*/
+/*.dnd-drag-over .panel-body{
   border: 2px black dashed;
-}
+}*/
 
 .center{
   text-align:center;
@@ -39,9 +38,9 @@
   background-color: orange;
 }
 
-:host /deep/ .highlightMe{
+/*:host /deep/ .highlightMe{
   color:black;
-}
+}*/
 
 .tableMarkup tr {
   margin-bottom:20px;
