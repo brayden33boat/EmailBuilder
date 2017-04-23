@@ -1,13 +1,16 @@
+<h3>Import Json</h3>
+<p><i>*Paste json here and click upload</i></p>
+
 <div class="row">
-  <div class="col-md-8 col-md-offset2">
+  <div class="col-md-12">
     <md-input-container>
-      <textarea mdInput placeholder="JSON" [(ngModel)]="jsonToUpload"></textarea>
+      <textarea cols="50" mdInput placeholder="JSON" [(ngModel)]="jsonToUpload"></textarea>
     </md-input-container>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset2">
+  <div class="col-md-12">
     <button class="btn btn-primary pull-right" (click)="upload()">Upload</button>
   </div>
 </div>

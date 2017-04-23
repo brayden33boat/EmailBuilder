@@ -77,6 +77,11 @@ export class ViewEmailBuilderComponent implements OnInit {
       var receivedData = JSON.parse(jsonReceivedData);
       var importedReceivedData = [];
 
+      if (receivedData.length <= 0 || jsonReceivedData == ''){
+        dialogRef.close();
+        return;
+      }
+
       for (var i = 0; i < receivedData.length; i++) {
         var widget = new Widget(receivedData[i].dragData.id,
                                 receivedData[i].dragData.type,
