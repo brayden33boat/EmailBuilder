@@ -9,6 +9,7 @@ import {Widget} from '../widget'
 export class EditWidgetComponent implements OnInit {
   widget:Widget;
   widgetIndex:number;
+  editHtml:boolean = false;
 
   @Output() deleteWidget = new EventEmitter();
   @Output() closeDialog = new EventEmitter();
@@ -25,6 +26,10 @@ export class EditWidgetComponent implements OnInit {
 
   close(){
     this.closeDialog.emit();
+  }
+
+  editHtmlTemplate(){
+    this.editHtml=!this.editHtml;
   }
 
 }

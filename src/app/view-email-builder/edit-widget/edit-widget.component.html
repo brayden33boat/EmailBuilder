@@ -1,20 +1,28 @@
 <h2>Edit</h2>
 <p><i>*Changes are live</i></p>
 
-<div class="row">
-  <div class="col-md-12">
-    <md-input-container *ngFor="let insertable of widget.insertables">
+<div class="row" *ngIf="!editHtml">
+  <div class="col-md-4" *ngFor="let insertable of widget.insertables">
+    
+    <md-input-container >
       <!--<input mdInput type="text" placeholder="Data Input" [(ngModel)]="insertable.value">-->
       <textarea mdInput placeholder="{{insertable.label}}" [(ngModel)]="insertable.value"></textarea>
     </md-input-container>
+  </div>
+</div>
 
-    <br />
+<div class="row" *ngIf="editHtml">
+  <div class="col-md-12">
+    <md-input-container>
+      <textarea mdInput placeholder="Html Template" [(ngModel)]="widget.htmlTemplate"></textarea>
+    </md-input-container>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <button class="btn btn-primary pull-right" (click)="close()">Close</button>
+    <button class="btn btn-info pull-right" (click)="editHtmlTemplate()">Toggle Edit Html Template</button>
     <button class="btn btn-danger pull-right" (click)="delete()">Delete</button>
   </div>
 </div>
