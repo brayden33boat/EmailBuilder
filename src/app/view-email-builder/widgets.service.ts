@@ -7,6 +7,7 @@ export class WidgetsService {
 
   constructor() { }
 
+  //This will of course later pull from back end. But for now, meh
   getWidgets(){
     var widgets = [];
 

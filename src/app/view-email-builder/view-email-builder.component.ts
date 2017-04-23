@@ -46,6 +46,10 @@ export class ViewEmailBuilderComponent implements OnInit {
     this.showHtml = !this.showHtml;
   }
 
+  alertHtml(){
+    alert(this.html);
+  }
+
   toHtml() {
     var html = '<table style="width:100%"><tbody>';
 
