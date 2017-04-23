@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { EditWidgetComponent } from './edit-widget/edit-widget.component';
+import { ImportJsonDialogComponent } from './import-json-dialog/import-json-dialog.component';
 
 import { Widget } from './widget'
 
@@ -46,7 +47,12 @@ export class ViewEmailBuilderComponent implements OnInit {
     this.showHtml = !this.showHtml;
   }
 
-  alertHtml(){
+  alertJson() {
+    alert(JSON.stringify(this.receivedData));
+  }
+
+  alertHtml() {
+    this.toHtml();
     alert(this.html);
   }
 
@@ -62,6 +68,33 @@ export class ViewEmailBuilderComponent implements OnInit {
     html += '</tbody></table>';
 
     this.html = html;
+  }
+
+  importJson() {
+    let dialogRef: MdDialogRef<ImportJsonDialogComponent> = this.dialog.open(ImportJsonDialogComponent);
+
+    dialogRef.componentInstance.uploadJson.subscribe((jsonReceivedData) => {
+      var receivedData = JSON.parse(jsonReceivedData);
+      var importedReceivedData = [];
+
+      console.log(receivedData);
+
+      for (var i = 0; i < receivedData.length; i++) {
+        var widget = new Widget(receivedData[i].dragData.id,
+                                receivedData[i].dragData.type,
+                                receivedData[i].dragData.favicon,
+                                receivedData[i].dragData.htmlTemplate,
+                                receivedData[i].dragData.insertables);
+
+        importedReceivedData.push({'dragData': widget});
+      }
+
+      console.log(this.receivedData);
+      console.log(importedReceivedData);
+
+      this.receivedData=importedReceivedData;
+      dialogRef.close();
+    });
   }
 
   editItem(index) {

@@ -14,13 +14,15 @@ import 'hammerjs';
 import { EditWidgetComponent } from './view-email-builder/edit-widget/edit-widget.component';
 import {WidgetsService} from './view-email-builder/widgets.service';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { ImportJsonDialogComponent } from './view-email-builder/import-json-dialog/import-json-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewEmailBuilderComponent,
     EditWidgetComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    ImportJsonDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,9 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
   ],
   providers: [WidgetsService],
   bootstrap: [AppComponent],
-  entryComponents: [EditWidgetComponent]
+  entryComponents: [
+    EditWidgetComponent,
+    ImportJsonDialogComponent
+  ]
 })
 export class AppModule { }
