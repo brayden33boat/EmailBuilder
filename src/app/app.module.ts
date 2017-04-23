@@ -15,6 +15,7 @@ import { EditWidgetComponent } from './view-email-builder/edit-widget/edit-widge
 import {WidgetsService} from './view-email-builder/widgets.service';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ImportJsonDialogComponent } from './view-email-builder/import-json-dialog/import-json-dialog.component';
+import { SimpleDialogComponent } from './view-email-builder/simple-dialog/simple-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ImportJsonDialogComponent } from './view-email-builder/import-json-dial
     ViewEmailBuilderComponent,
     EditWidgetComponent,
     SafeHtmlPipe,
-    ImportJsonDialogComponent
+    ImportJsonDialogComponent,
+    SimpleDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { ImportJsonDialogComponent } from './view-email-builder/import-json-dial
   bootstrap: [AppComponent],
   entryComponents: [
     EditWidgetComponent,
-    ImportJsonDialogComponent
+    ImportJsonDialogComponent,
+    SimpleDialogComponent
   ]
 })
 export class AppModule { }

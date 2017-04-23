@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { EditWidgetComponent } from './edit-widget/edit-widget.component';
 import { ImportJsonDialogComponent } from './import-json-dialog/import-json-dialog.component';
+import { SimpleDialogComponent } from './simple-dialog/simple-dialog.component';
+
 
 import { Widget } from './widget'
 
@@ -48,12 +50,15 @@ export class ViewEmailBuilderComponent implements OnInit {
   }
 
   alertJson() {
-    alert(JSON.stringify(this.receivedData));
+    let dialogRef: MdDialogRef<SimpleDialogComponent> = this.dialog.open(SimpleDialogComponent);
+    dialogRef.componentInstance.msg = JSON.stringify(this.receivedData);
   }
 
   alertHtml() {
     this.toHtml();
-    alert(this.html);
+
+    let dialogRef: MdDialogRef<SimpleDialogComponent> = this.dialog.open(SimpleDialogComponent);
+    dialogRef.componentInstance.msg = this.html;
   }
 
   toHtml() {
