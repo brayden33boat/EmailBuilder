@@ -38,13 +38,13 @@ export var template5 = `<table style='width:100%'>
 </table>`;
 export var template6 = `<table style='width:100%'>
 	<tr align='{{align}}'>
-		<td style='width:100%'><img src='{{img}}' width='200px'></td>
+		<td style='width:100%'><img src='{{img}}' width='{{imgSize}}'></td>
 	</tr>
 </table>`;
 export var template7 = `<table style='width:100%'>
 	<tr align='{{align}}'>
-		<td style='width:50%'><img src='{{img1}}' width='200px'></td>
-		<td style='width:50%'><img src='{{img2}}' width='200px'></td>
+		<td style='width:50%'><img src='{{img1}}' width='{{img1Size}}'></td>
+		<td style='width:50%'><img src='{{img2}}' width='{{img2Size}}'></td>
 	</tr>
 </table>`;
 export var template8 = `<table style='width:100%'>
@@ -52,12 +52,12 @@ export var template8 = `<table style='width:100%'>
 		<td style='width:50%'>
 			<p>{{text}}</p>
 		</td>
-		<td style='width:50%'><img src='{{img}}' width='200px'></td>
+		<td style='width:50%'><img src='{{img}}' width='{{imgSize}}'></td>
 	</tr>
 </table>`;
 export var template9 = `<table style='width:100%'>
 	<tr align='{{align}}'>
-		<td style='width:50%'><img src='{{img}}' width='200px'></td>
+		<td style='width:50%'><img src='{{img}}' width='{{imgSize}}'></td>
 		<td style='width:50%'>
 			<p>{{text}}</p>
 		</td>
