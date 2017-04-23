@@ -22,7 +22,9 @@
 <div class="row">
   <div class="col-md-12">
     <button class="btn btn-primary pull-right" (click)="close()">Close</button>
-    <button class="btn btn-info pull-right" (click)="editHtmlTemplate()">Toggle Edit Html Template</button>
+    <button class="btn btn-info pull-right" (click)="editHtmlTemplate()">
+      <span *ngIf="editHtml">Edit Variables</span><span *ngIf="!editHtml">Edit HTML Template</span>
+    </button>
     <button class="btn btn-danger pull-right" (click)="delete()">Delete</button>
   </div>
 </div>
